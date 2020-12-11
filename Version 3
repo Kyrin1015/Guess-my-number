@@ -1,0 +1,75 @@
+import random
+
+count = 0
+while True:
+    print("Do you want to:")
+    print("1. Choose a number between 1 and 100 or ")
+    print("2. Choose the bounds for a random number?")
+    user_choice_methods_of_play = input("")
+    if user_choice_methods_of_play == "1":
+        random_number = random.randint(1, 100)
+        while True:
+            guess_num_intro = int(input("What number do you think I’ve picked?: "))
+            count += 1
+            if guess_num_intro == random_number:
+                print("Congratulations, you got the correct number in " + str(count) + " guesses.")
+                break
+            elif guess_num_intro > random_number:
+                if guess_num_intro > 100:
+                    print("Sorry, not within the range of values of 1 to 100")
+                elif guess_num_intro <= 100:
+                    print("Sorry, too high") 
+                continue
+            elif guess_num_intro < random_number:
+                if guess_num_intro < 1:
+                    print("Sorry, not within the range of values of 1 to 100")
+                elif guess_num_intro >= 1:
+                    print("Sorry, too low")
+                continue
+        play_again = input("Play again?")
+        #The play again does not work. the first if statement triggers everything.
+        if play_again == "Yes" or "yes":
+            print("ok")
+            continue
+        elif play_again == "No" or "no":
+            print("Thank you, goodbye!")
+            break
+        else:
+            print("You have entered something other than the accepted inputs.")
+    elif user_choice_methods_of_play == "2":
+        lower_bound = int(input("What is the lower bound for me to pick a number?: "))
+        upper_bound = int(input("What is the upper bound for me to pick a number?: "))
+        if lower_bound > upper_bound:
+            print("Your lower bound is bigger then your upper bound. Please restart the game.")
+            break
+        random_number = random.randint(lower_bound, upper_bound)
+        while True:
+            guess_num_intro = int(input("What number do you think I’ve picked?: "))
+            count += 1
+            if guess_num_intro == random_number:
+                print("Congratulations, you got the correct number in " + str(count) + " guesses.")
+                break
+            elif guess_num_intro > random_number:
+                if guess_num_intro > upper_bound:
+                    print("Sorry, not within the range of values of 1 to 100")
+                elif guess_num_intro <= upper_bound:
+                    print("Sorry, too high") 
+                continue
+            elif guess_num_intro < random_number:
+                if guess_num_intro < lower_bound:
+                    print("Sorry, not within the range of values of 1 to 100")
+                elif guess_num_intro >= lower_bound:
+                    print("Sorry, too low")
+                continue
+        play_again = input("Play again?")
+        #The play again does not work. the first if statement triggers everything.
+        if play_again == "Yes" or "yes":
+            print("ok")
+            continue
+        elif play_again == "No" or "no":
+            print("Thank you, goodbye!")
+            break
+        else:
+            print("You have entered something other than the accepted inputs.")
+    else:
+        print("An error has occured. The game will restart.")
