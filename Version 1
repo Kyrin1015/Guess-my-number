@@ -1,0 +1,13 @@
+import random
+
+while True:
+    print("Do you want to:")
+    print("1. Choose a number between 1 and 100 or ")
+    print("2. Choose the bounds for a random number?")
+    user_choice_methods_of_play = input("")
+    if user_choice_methods_of_play == "1":
+        random_number = random.randint(1, 100)
+    elif user_choice_methods_of_play == "2":
+        print("")
+    else:
+        print("An error has occured")
